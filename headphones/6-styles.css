@@ -1,0 +1,145 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --primary-color: #FF6565;
+    --blue-bg-color: #071629;
+    --text-color-light: #fff;
+    --text-color-dark: #333;
+    --background-color: #f4f4f4;
+    --link-hover-color: #FF6565;
+    --button-bg-color: #FF6565;
+    --hero-spacing: 20px; /* New variable for consistent spacing */
+}
+
+@font-face {
+  font-family: 'source-sans-proBold';
+  src: url('source-sans-pro/SourceSansPro-Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source-sans-proRegular';
+  src: url('source-sans-pro/SourceSansPro-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'spincycle';
+    src: url('spincycle/Spincycle.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'spincycleBold';
+    src: url('spincycle/Spincycle-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+/* Our Results Section Styling */
+#our_results {
+    padding: 80px 0;
+    position: relative;
+    background-image: url('images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color-light);
+    min-height: 100vh;
+}
+
+/* Adds a semi-transparent overlay to the entire section */
+#our_results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Ensure content is above the overlay */
+#our_results .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+#our_results h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#our_results p {
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* This line adds the space below the paragraph */
+}
+
+/* The grid container for the results */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    place-items: center;
+}
+
+/* Pentagon Container: Draws the pentagon shape and contains the text */
+.pentagon-container {
+    position: relative;
+    width: 150px;
+    height: 142.857px; /* A precise ratio for a perfect pentagon */
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* The text content, perfectly centered over the pentagon */
+.pentagon-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Ensures the text is on top of the shape */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.pentagon-text .number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color-light);
+    margin: 0;
+}
+
+.pentagon-text .description {
+    font-size: 10px;
+    color: var(--text-color-light);
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+
+/* Mobile-First Responsive Design for the results grid */
+@media screen and (max-width: 992px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
