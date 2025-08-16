@@ -223,7 +223,7 @@ body {
     }
 
     .hamburger-menu {
-        display: flex; /* Show hamburger menu on small screens */
+        display: flex !important; /* Show hamburger menu on small screens */
     }
 }
 
