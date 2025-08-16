@@ -1,0 +1,516 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --primary-color: #FF6565;
+    --blue-bg-color: #071629;
+    --text-color-light: #fff;
+    --text-color-dark: #333;
+    --background-color: #f4f4f4;
+    --link-hover-color: #FF6565;
+    --button-bg-color: #FF6565;
+    --hero-spacing: 20px; /* New variable for consistent spacing */
+}
+
+@font-face {
+  font-family: 'source-sans-proBold';
+  src: url('source-sans-pro/SourceSansPro-Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'source-sans-proRegular';
+  src: url('source-sans-pro/SourceSansPro-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'spincycle';
+    src: url('spincycle/Spincycle.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'spincycleBold';
+    src: url('spincycle/Spincycle-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Global Styles */
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color-dark);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    background-image: url('images/headphones_hero_1.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color-light);
+    /* padding: 100px 0;
+    text-align: center; */
+    position: relative; /* Needed for the overlay */
+    min-height: 100vh;
+}
+
+/* Add an overlay to make text more readable */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Ensure content is above the overlay */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation Bar */
+.navbar {
+    padding: 10px 0;
+    background-color: transparent; /* Semi-transparent background */
+}
+
+.navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /*  margin-bottom: 80px; */
+}
+
+.logo img {
+    max-height: 50px; /* Adjust logo height */
+    width: auto;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    font-family: 'source-sans-proRegular', sans-serif;
+    text-decoration: none;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--link-hover-color);
+}
+
+/* Hero Content */
+.hero-content {
+    text-align: center;
+    padding-top: 80px; /* Adjust padding for better spacing */
+    padding-bottom: 100px; /* Adjust padding for better spacing */
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+}
+
+
+.hero-content h1 {
+    font-family: 'source-sans-proBold', sans-serif;
+    font-size: 48px;
+}
+
+.hero-subheading {
+    font-family: 'source-sans-proRegular', sans-serif;
+    font-size: 16px;
+    margin-bottom: var(--hero-spacing)
+}
+
+.hero-content .cta-button {
+    background-color: var(--button-bg-color);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'spincycleBold', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: var(--hero-spacing);
+}
+
+.hero-additional-text {
+    font-family: 'source-sans-proRegular', sans-serif;
+    font-size: 16px;
+    color: var(--text-color-light);
+}
+.cta-button:hover,
+.cta-button:active {
+    opacity: 0.9;
+}
+
+/* Mobile-First Responsive Design */
+@media screen and (max-width: 480px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+}
+
+
+/* What We Do Section */
+#what_we_do {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+/* Center the main heading and paragraph */
+#what_we_do h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#what_we_do p {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+
+/* The card grid container */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Styling for each individual card */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    
+    /* This is the key to the horizontal layout */
+    display: block;
+    text-align: center; /* Center the text inside the card */
+    gap: 20px;
+}
+
+.card:hover {
+    transform: translate(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card span[class*="holberton_school-icon-"] {
+    font-size: 3rem; /* Adjust icon size as needed */
+    color: var(--primary-color);
+    line-height: 1; /* Ensures the icon is vertically aligned cleanly */
+}
+
+/* The container for the h3 and p, stacked vertically */
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    text-align: center; /* Override the main paragraph's center alignment */
+    margin: 0;
+}
+
+/* --- Mobile-First Responsive Design --- */
+@media screen and (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Our Results Section Styling */
+#our_results {
+    padding: 80px 0;
+    position: relative;
+    background-image: url('images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color-light);
+    min-height: 100vh;
+}
+
+/* Add an overlay to make text more readable */
+#our_results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+}
+
+#our_results .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+#our_results h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#our_results p {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    /* margin: 0 auto;
+    text-align: center; */
+    /* margin-bottom: 200px; */
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    place-items: center; /* Centers items in the grid */
+    margin-top: 80px;
+}
+
+.result-item {
+    text-align: center;
+    /* background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px; */
+}
+
+.pentagon-container {
+    position: relative; /* This is the key. The text will be positioned relative to this container. */
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pentagon-container:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.pentagon-image {
+    /* Ensures the image covers the entire grid area */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pentagon-text {
+    position: absolute; /* Position text over the pentagon */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text horizontally */
+    justify-content: center; /* Center the text vertically */
+   
+    color: var(--text-color-light); /* Adjust text color for visibility */
+    width: 100%; /* Ensure text takes full width */
+    height: 100%; /* Ensure text takes full height */
+}
+
+.pentagon-text .number {
+    font-size: 36px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: var(--text-color-light);
+    margin: 0;
+}
+
+.pentagon-text .description {
+    font-size: 12px; /* Adjust font size as needed */
+    color: var(--text-color-light); /* Adjust text color for visibility */
+    text-transform: uppercase;
+    margin: 0; /* Space between number and description */
+}
+
+/* Mobile-First Responsive Design for the new section */
+@media screen and (max-width: 480px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contact Us Section Styling */
+#contact_us {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+#contact_us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--text-color-dark);
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(255, 101, 101, 0.5);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .cta-button {
+    background-color: var(--button-bg-color);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-button:active {
+    opacity: 0.9;
+}
+
+/* Mobile-First Responsive Design for the new section */
+@media screen and (max-width: 480px) {
+    #contact-us h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+.main-footer {
+    padding: 40px 0;
+    background-color: var(--blue-bg-color); /* Set the background to darkblue */
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Adds padding to the container */
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between; /* Aligns logo and social icons horizontally */
+    align-items: center; /* Vertically aligns the content */
+    margin-bottom: 20px; /* Adds space between top content and copyright */
+}
+
+.main-footer .logo img {
+    max-height: 50px; /* Adjust logo size */
+    width: auto;
+}
+
+.social-icons {
+    color: #fff; /* Default color for social icons */
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: var(--text-color-light);
+    font-size: 32px; /* Adjust icon size as needed */
+}
+
+.copyright-text {
+    margin: 0;
+    text-align: center; /* Centers the copyright text */
+    font-size: 16px;
+}
+
+/* Mobile-First Responsive Design */
+@media screen and (max-width: 480px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+#our_results p,
+#what_we_do p,
+#contact_us p {
+    margin-bottom: 0;
+}

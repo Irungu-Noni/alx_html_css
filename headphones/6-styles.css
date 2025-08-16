@@ -44,6 +44,7 @@
     font-weight: bold;
     font-style: normal;
 }
+
 /* Our Results Section Styling */
 #our_results {
     padding: 80px 0;
@@ -80,7 +81,7 @@
 
 #our_results p {
     max-width: 800px;
-    margin: 0 auto 50px auto; /* This line adds the space below the paragraph */
+    margin: 0 auto 50px auto;
 }
 
 /* The grid container for the results */
@@ -95,7 +96,7 @@
 .pentagon-container {
     position: relative;
     width: 150px;
-    height: 142.857px; /* A precise ratio for a perfect pentagon */
+    height: 142.857px;
     margin: 0 auto;
     background-color: var(--primary-color);
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
@@ -107,24 +108,31 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Ensures the text is on top of the shape */
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+/*     gap: 0; */
     width: 100%;
     height: 100%;
+    padding-top: 50%;
+    padding-bottom: 10%;
 }
 
 .pentagon-text .number {
     font-size: 24px;
     font-weight: bold;
+    font-family: 'spincycleBold', sans-serif;
     color: var(--text-color-light);
-    margin: 0;
+    margin: 0; 
+    text-align: center;
+/*     padding-top: 70px; */
 }
 
 .pentagon-text .description {
     font-size: 10px;
+    font-family: 'source-sans-proRegular', sans-serif;
     color: var(--text-color-light);
     text-transform: uppercase;
     margin: 0;
